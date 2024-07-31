@@ -273,7 +273,7 @@
         <version>0.12</version>
         <configuration>
           <!-- 提交信息 -->
-          <message>core, version: ${project.version}</message>
+          <message>设置自动跨域 </message>
           <!-- 是否禁用Jekyll -->
           <noJekyll>true</noJekyll>
           <!-- 输出目录 -->
