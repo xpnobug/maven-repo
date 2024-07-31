@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!--当前项目的 GAV 坐标-->
+  <groupId>com.reai</groupId>
+  <artifactId>demo-core</artifactId>
+  <version>1.0.0</version>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.1.5</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <name>${project.artifactId}</name>
+  <description>核心模块</description>
+
+  <!-- 版本管理 -->
+  <properties>
+    <mybatis-version>2.1.4</mybatis-version>
+    <mybatisPlus-version>3.5.6</mybatisPlus-version>
+    <mysql-version>8.0.25</mysql-version>
+    <freemarker.version>2.3.31</freemarker.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <sonar.version>3.11.0.3922</sonar.version>
+    <okhttp3.version>4.9.3</okhttp3.version>
+    <satoken-jwt.version>1.38.0</satoken-jwt.version>
+    <Ip2region.version>3.2.6</Ip2region.version>
+    <hutool.version>5.8.29</hutool.version>
+  </properties>
+
+  <dependencies>
+    <!-- Spring Boot JDBC 启动器，用于简化 JDBC 操作的配置和使用 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Web 启动器，包含构建 Web 应用程序所需的常用依赖，如 Spring MVC -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Boot 缓存启动器，提供缓存功能的快速集成 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Actuator 启动器，提供生产环境监控和管理功能 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Redis 数据访问启动器，提供 Redis 的数据访问功能 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Spring Boot WebSocket 启动器，提供 WebSocket 支持 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Spring Boot AMQP 启动器，提供 AMQP 支持 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Spring AMQP，Spring 框架的 AMQP 支持库 -->
+    <dependency>
+      <groupId>org.springframework.amqp</groupId>
+      <artifactId>spring-amqp</artifactId>
+    </dependency>
+
+    <!-- Spring Boot 测试启动器，提供测试 Spring Boot 应用程序的依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--只能放父级pom中 操作minio的java客户端-->
+    <dependency>
+      <groupId>io.minio</groupId>
+      <artifactId>minio</artifactId>
+      <version>8.3.5</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>okhttp</artifactId>
+          <groupId>com.squareup.okhttp3</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>${hutool.version}</version>
+    </dependency>
+
+    <!--    加密工具-->
+    <dependency>
+      <groupId>com.github.ulisesbocchio</groupId>
+      <artifactId>jasypt-spring-boot-starter</artifactId>
+      <version>3.0.4</version>
+    </dependency>
+
+
+    <!-- 导出excel   -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-scratchpad</artifactId>
+      <version>5.2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>2.0.9.graal</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+    <!--    json工具-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.13.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.5</version>
+    </dependency>
+
+    <!-- Lombok（在 Java 开发过程中用注解的方式，简化了 JavaBean 的编写，避免了冗余和样板式代码，让编写的类更加简洁） -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+    </dependency>
+
+    <!-- jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.11.3</version>
+    </dependency>
+
+    <!--MyBatis 整合 SpringBoot 的起步依赖-->
+    <!--mybatis-plus-->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+      <version>${mybatisPlus-version}</version>
+    </dependency>
+
+    <!--MySQL 的驱动依赖-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-version}</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp3.version}</version>
+    </dependency>
+
+    <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+    <dependency>
+      <groupId>cn.dev33</groupId>
+      <artifactId>sa-token-spring-boot3-starter</artifactId>
+      <version>${satoken-jwt.version}</version>
+    </dependency>
+
+    <!-- Sa-Token 整合 JWT -->
+    <dependency>
+      <groupId>cn.dev33</groupId>
+      <artifactId>sa-token-jwt</artifactId>
+      <version>${satoken-jwt.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+    </dependency>
+
+    <!-- 第三方封装 Ip2region（离线 IP 数据管理框架和定位库，支持亿级别的数据段，10 微秒级别的查询性能，提供了许多主流编程语言的 xdb 数据管理引擎的实现） -->
+    <dependency>
+      <groupId>net.dreamlu</groupId>
+      <artifactId>mica-ip2region</artifactId>
+      <version>${Ip2region.version}</version>
+    </dependency>
+
+<!--    &lt;!&ndash; Hutool 核心模块（核心方法及数据结构包） &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>cn.hutool</groupId>-->
+<!--      <artifactId>hutool-core</artifactId>-->
+<!--      <version>${hutool.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Hutool JSON 模块（基于 json.org 官方库改造） &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>cn.hutool</groupId>-->
+<!--      <artifactId>hutool-json</artifactId>-->
+<!--      <version>${hutool.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Hutool 扩展模块（提供对第三方库的工具类支持） &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>cn.hutool</groupId>-->
+<!--      <artifactId>hutool-extra</artifactId>-->
+<!--      <version>${hutool.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Hutool HTTP客户端模块（针对 JDK 的 HttpUrlConnection 做一层封装，简化了 HTTPS 请求、文件上传、Cookie 记忆等操作，使 Http 请求变得无比简单） &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>cn.hutool</groupId>-->
+<!--      <artifactId>hutool-http</artifactId>-->
+<!--      <version>${hutool.version}</version>-->
+<!--    </dependency>-->
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <!-- 配置maven-deploy-plugin插件 -->
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <configuration>
+          <!-- 配置备选部署仓库 -->
+          <altDeploymentRepository>
+            internal.repo::default::file://${project.build.directory}/maven-repo
+          </altDeploymentRepository>
+        </configuration>
+      </plugin>
+
+      <!-- 配置site-maven-plugin插件 -->
+      <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.12</version>
+        <configuration>
+          <!-- 提交信息 -->
+          <message>core, version: ${project.version}</message>
+          <!-- 是否禁用Jekyll -->
+          <noJekyll>true</noJekyll>
+          <!-- 输出目录 -->
+          <outputDirectory>${project.build.directory}/maven-repo</outputDirectory>
+          <!-- 分支的名称 -->
+          <branch>refs/heads/main</branch>
+          <!-- 是否合并 -->
+          <merge>true</merge>
+          <!-- 包含的文件 -->
+          <includes>
+            <include>**/*</include>
+          </includes>
+          <!-- 对应GitHub上创建的仓库名称 -->
+          <repositoryName>maven-repo</repositoryName>
+          <!-- GitHub 仓库所有者，即登录用户名 -->
+          <repositoryOwner>xpnobug</repositoryOwner>
+          <server>github</server>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <!-- 定义执行的目标 -->
+              <goal>site</goal>
+            </goals>
+            <!-- 定义执行的阶段 -->
+            <phase>deploy</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>maven-repo</id>
+      <url>https://raw.githubusercontent.com/xpnobug/maven-repo/main/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+</project>
