@@ -224,11 +224,11 @@
     </dependency>
 
     <!-- Undertow 服务器（采用 Java 开发的灵活的高性能 Web 服务器，提供包括阻塞和基于 NIO 的非堵塞机制） -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-undertow</artifactId>
-      <version>3.2.7</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-undertow</artifactId>-->
+<!--      <version>3.2.7</version>-->
+<!--    </dependency>-->
 
     <!-- TLog（轻量级的分布式日志标记追踪神器） -->
     <dependency>
