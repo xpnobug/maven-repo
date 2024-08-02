@@ -67,10 +67,10 @@
     </dependency>
 
     <!-- Spring Boot WebSocket 启动器，提供 WebSocket 支持 -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-websocket</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-websocket</artifactId>-->
+<!--    </dependency>-->
 
     <!-- Spring Boot AMQP 启动器，提供 AMQP 支持 -->
     <dependency>
