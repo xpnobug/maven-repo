@@ -12,7 +12,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.5</version>
+    <version>3.2.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
@@ -260,7 +260,7 @@
         <version>0.12</version>
         <configuration>
           <!-- 提交信息 -->
-          <message>设置自动跨域 </message>
+          <message>更新版本</message>
           <!-- 是否禁用Jekyll -->
           <noJekyll>true</noJekyll>
           <!-- 输出目录 -->
