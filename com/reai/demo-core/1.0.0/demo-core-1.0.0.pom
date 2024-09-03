@@ -42,10 +42,10 @@
     </dependency>
 
     <!-- Spring Boot Web 启动器，包含构建 Web 应用程序所需的常用依赖，如 Spring MVC -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-web</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
 
     <!-- Spring Boot 缓存启动器，提供缓存功能的快速集成 -->
     <dependency>
@@ -191,51 +191,13 @@
       <version>${okhttp3.version}</version>
     </dependency>
 
-    <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
-    <dependency>
-      <groupId>cn.dev33</groupId>
-      <artifactId>sa-token-spring-boot3-starter</artifactId>
-      <version>${satoken-jwt.version}</version>
-    </dependency>
 
-    <!-- Sa-Token 整合 JWT -->
-    <dependency>
-      <groupId>cn.dev33</groupId>
-      <artifactId>sa-token-jwt</artifactId>
-      <version>${satoken-jwt.version}</version>
-    </dependency>
 
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
     </dependency>
 
-    <!-- 第三方封装 Ip2region（离线 IP 数据管理框架和定位库，支持亿级别的数据段，10 微秒级别的查询性能，提供了许多主流编程语言的 xdb 数据管理引擎的实现） -->
-    <dependency>
-      <groupId>net.dreamlu</groupId>
-      <artifactId>mica-ip2region</artifactId>
-      <version>${Ip2region.version}</version>
-    </dependency>
-
-    <!--    防止swagger报错-->
-    <dependency>
-      <groupId>jakarta.validation</groupId>
-      <artifactId>jakarta.validation-api</artifactId>
-    </dependency>
-
-    <!-- Undertow 服务器（采用 Java 开发的灵活的高性能 Web 服务器，提供包括阻塞和基于 NIO 的非堵塞机制） -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-undertow</artifactId>-->
-<!--      <version>3.2.7</version>-->
-<!--    </dependency>-->
-
-    <!-- TLog（轻量级的分布式日志标记追踪神器） -->
-    <dependency>
-      <groupId>com.yomahub</groupId>
-      <artifactId>tlog-web-spring-boot-starter</artifactId>
-      <version>1.5.2</version>
-    </dependency>
   </dependencies>
 
 
